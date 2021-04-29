@@ -39,7 +39,8 @@ public class TouchListener implements View.OnTouchListener {
             case MotionEvent.ACTION_CANCEL:
                 for(int i= 0, size = motionEvent.getPointerCount(); i< size; i++){
                     int id = motionEvent.getPointerId(i);
-                    paintActivity.removePath(id);
+                    paintActivity.onEndPath();
+                    //paintActivity.removePath(id);
                 }
                 break;
         }

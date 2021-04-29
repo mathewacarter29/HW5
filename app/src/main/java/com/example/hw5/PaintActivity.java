@@ -58,6 +58,10 @@ public class PaintActivity extends AppCompatActivity {
         myCanvas.updatePath(id, x, y);
     }
 
+    public void onEndPath() {
+        myCanvas.onEndPath();
+    }
+
     public void removePath(int id) {
         myCanvas.removePath(id);
     }

@@ -9,12 +9,15 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
 public class MyCanvas extends View {
     HashMap <Integer, Path> activePaths;
     Paint pathPaint;
+    ArrayList<HashMap <Integer, Path>> allLines;
+    ArrayList<Paint> allPaints;
 
     public MyCanvas(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -23,14 +26,28 @@ public class MyCanvas extends View {
         pathPaint.setColor(Color.RED);
         pathPaint.setStyle(Paint.Style.STROKE);
         pathPaint.setStrokeWidth(10);
+        allLines = new ArrayList<HashMap<Integer, Path>>();
+        allPaints = new ArrayList<Paint>();
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
+        assert(allLines.size() == allPaints.size());
+        for (int i = 0; i < allLines.size(); i++) {
+            for (Path path: allLines.get(i).values()) {
+                canvas.drawPath(path, allPaints.get(i));
+            }
+        }
         for(Path path: activePaths.values()){
             canvas.drawPath(path, pathPaint);
         }
         super.onDraw(canvas);
+    }
+
+    public void onEndPath() {
+        allLines.add(activePaths);
+        allPaints.add(pathPaint);
+        activePaths = new HashMap<>();
     }
 
     public void addPath(int id, float x, float y) {
@@ -56,6 +73,9 @@ public class MyCanvas extends View {
     }
 
     public void setColor(int id) {
+        pathPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        pathPaint.setStyle(Paint.Style.STROKE);
+        pathPaint.setStrokeWidth(10);
         if (id == 0) {
             pathPaint.setColor(Color.RED);
         }
