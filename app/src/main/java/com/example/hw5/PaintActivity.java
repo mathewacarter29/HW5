@@ -78,4 +78,16 @@ public class PaintActivity extends AppCompatActivity {
             myCanvas.setColor(2);
         }
     }
+
+    public void onDone(View view) {
+        onBackPressed();
+    }
+
+    public void onClear(View view) {
+        myCanvas.onClear();
+    }
+
+    public void onUndo(View view) {
+        myCanvas.onUndo();
+    }
 }

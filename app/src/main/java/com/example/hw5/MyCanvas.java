@@ -86,4 +86,18 @@ public class MyCanvas extends View {
             pathPaint.setColor(Color.GREEN);
         }
     }
+
+    public void onClear() {
+        allLines.clear();
+        allPaints.clear();
+        invalidate();
+    }
+
+    public void onUndo() {
+        if (!allLines.isEmpty()) {
+            allLines.remove(allLines.size() - 1);
+            allPaints.remove(allPaints.size() - 1);
+            invalidate();
+        }
+    }
 }
