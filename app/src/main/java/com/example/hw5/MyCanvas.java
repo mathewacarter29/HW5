@@ -20,9 +20,9 @@ public class MyCanvas extends View {
         super(context, attrs);
         activePaths = new HashMap<>();
         pathPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        pathPaint.setColor(Color.BLACK);
+        pathPaint.setColor(Color.RED);
         pathPaint.setStyle(Paint.Style.STROKE);
-        pathPaint.setStrokeWidth(70);
+        pathPaint.setStrokeWidth(10);
     }
 
     @Override
@@ -53,5 +53,17 @@ public class MyCanvas extends View {
             activePaths.remove(id);
         }
         invalidate();
+    }
+
+    public void setColor(int id) {
+        if (id == 0) {
+            pathPaint.setColor(Color.RED);
+        }
+        else if (id == 1) {
+            pathPaint.setColor(Color.BLUE);
+        }
+        else if (id == 2) {
+            pathPaint.setColor(Color.GREEN);
+        }
     }
 }

@@ -8,6 +8,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.View;
 import android.widget.Button;
 
 import java.io.IOException;
@@ -59,5 +60,18 @@ public class PaintActivity extends AppCompatActivity {
 
     public void removePath(int id) {
         myCanvas.removePath(id);
+    }
+
+    public void onClick(View view) {
+        int id = view.getId();
+        if (id == redBut.getId()) {
+            myCanvas.setColor(0);
+        }
+        else if (id == blueBut.getId()) {
+            myCanvas.setColor(1);
+        }
+        else {
+            myCanvas.setColor(2);
+        }
     }
 }

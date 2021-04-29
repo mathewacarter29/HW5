@@ -8,8 +8,8 @@
 
     <com.example.hw5.MyCanvas
         android:id="@+id/myCanvas"
-        android:layout_width="397dp"
-        android:layout_height="491dp"
+        android:layout_width="393dp"
+        android:layout_height="445dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -18,9 +18,11 @@
         android:id="@+id/redBut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
+        android:onClick="onClick"
         android:text="RED"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/myCanvas" />
 
@@ -28,9 +30,12 @@
         android:id="@+id/blueBut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="12dp"
+        android:onClick="onClick"
         android:text="blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.241"
         app:layout_constraintStart_toEndOf="@+id/redBut"
         app:layout_constraintTop_toBottomOf="@+id/myCanvas" />
 
@@ -39,6 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:onClick="onClick"
         android:text="green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.797"
@@ -49,9 +55,10 @@
         android:id="@+id/undoBut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="undo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/redBut" />
 
@@ -59,9 +66,11 @@
         android:id="@+id/clearBut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:text="clear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.227"
         app:layout_constraintStart_toEndOf="@+id/undoBut"
         app:layout_constraintTop_toBottomOf="@+id/blueBut" />
 
@@ -69,10 +78,10 @@
         android:id="@+id/doneBut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="done"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintHorizontal_bias="0.786"
         app:layout_constraintStart_toEndOf="@+id/clearBut"
         app:layout_constraintTop_toBottomOf="@+id/greenBut" />
 </androidx.constraintlayout.widget.ConstraintLayout>
