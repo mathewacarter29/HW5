@@ -5,7 +5,6 @@ Finger Painter is an app that allows the user to take a picture on their android
 ## HW5
 
 ### User Stories
-`TODO://` In the **User Stories section below**, add an `x` in the `-[ ]` like this `- [x]` for any user story you complete. (🚫 Remove this paragraph after after checking off completed user stories)
 
 #### REQUIRED (100pts)
 - [x] (20pts) App can take a picture and show it in the second activity
@@ -18,7 +17,7 @@ Finger Painter is an app that allows the user to take a picture on their android
 
 ### App Walkthough GIF
 
-<img src="YOUR_GIF_URL_HERE" width=250><br>
+<img src="https://github.com/mathewacarter29/HW5/blob/master/HW5Walkthrough.gif" width=250><br>
 
 ### Notes
 One challenge I had was adding the icons to the canvas. I accomplished this by creating field varaibles that would hold the list of icons added and their respective positions on the
