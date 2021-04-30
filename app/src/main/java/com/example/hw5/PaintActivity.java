@@ -8,8 +8,10 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.io.IOException;
 
@@ -89,5 +91,15 @@ public class PaintActivity extends AppCompatActivity {
 
     public void onUndo(View view) {
         myCanvas.onUndo();
+    }
+
+    public void onDoubleTap(MotionEvent event) {
+        //Toast.makeText(this, "Double Tapped", Toast.LENGTH_SHORT).show();
+        myCanvas.addIcon(0, event);
+    }
+
+    public void onLongPress(MotionEvent event) {
+        //Toast.makeText(this, "Long Press", Toast.LENGTH_SHORT).show();
+        myCanvas.addIcon(1, event);
     }
 }

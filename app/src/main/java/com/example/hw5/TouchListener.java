@@ -52,13 +52,13 @@ public class TouchListener implements View.OnTouchListener {
     private class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
         @Override
         public boolean onDoubleTap(MotionEvent e) {
-            //paintActivity.onDoubleTap();
+            paintActivity.onDoubleTap(e);
             return super.onDoubleTap(e);
         }
 
         @Override
         public void onLongPress(MotionEvent e) {
-            //paintActivity.onLongPress();
+            paintActivity.onLongPress(e);
             super.onLongPress(e);
         }
     }

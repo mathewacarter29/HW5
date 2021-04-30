@@ -2,12 +2,17 @@ package com.example.hw5;
 
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
+
+import androidx.constraintlayout.widget.ConstraintSet;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,6 +23,8 @@ public class MyCanvas extends View {
     Paint pathPaint;
     ArrayList<HashMap <Integer, Path>> allLines;
     ArrayList<Paint> allPaints;
+    ArrayList<Bitmap> allIcons;
+    ArrayList<float[]> iconPlaces;
 
     public MyCanvas(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -28,10 +35,15 @@ public class MyCanvas extends View {
         pathPaint.setStrokeWidth(10);
         allLines = new ArrayList<HashMap<Integer, Path>>();
         allPaints = new ArrayList<Paint>();
+        allIcons = new ArrayList<Bitmap>();
+        iconPlaces = new ArrayList<>();
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
+        for (int i = 0; i < allIcons.size(); i++) {
+            canvas.drawBitmap(allIcons.get(i),iconPlaces.get(i)[0], iconPlaces.get(i)[1] , null);
+        }
         assert(allLines.size() == allPaints.size());
         for (int i = 0; i < allLines.size(); i++) {
             for (Path path: allLines.get(i).values()) {
@@ -41,6 +53,7 @@ public class MyCanvas extends View {
         for(Path path: activePaths.values()){
             canvas.drawPath(path, pathPaint);
         }
+
         super.onDraw(canvas);
     }
 
@@ -90,6 +103,8 @@ public class MyCanvas extends View {
     public void onClear() {
         allLines.clear();
         allPaints.clear();
+        allIcons.clear();
+        iconPlaces.clear();
         invalidate();
     }
 
@@ -99,5 +114,19 @@ public class MyCanvas extends View {
             allPaints.remove(allPaints.size() - 1);
             invalidate();
         }
+    }
+
+    public void addIcon(int i, MotionEvent e) {
+        float[] arr = new float[]{e.getX(), e.getY()};
+        iconPlaces.add(arr);
+        if (i == 0) {
+            Bitmap img = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.hokie_bird), 100, 100, false);
+            allIcons.add(img);
+        }
+        else if (i == 1){
+            Bitmap img = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.vt_logo), 100, 100, false);
+            allIcons.add(img);
+        }
+        invalidate();
     }
 }
